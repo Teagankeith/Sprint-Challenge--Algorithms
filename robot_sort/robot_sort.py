@@ -108,8 +108,9 @@ class SortingRobot:
         
         # If the Robot ends and comes with nothing, just break :)
         if self.compare_item() == None:
-                self.swap_item()
-                break
+            self.swap_item()
+            break
+
         self.move_right()
         self.sort()
         
