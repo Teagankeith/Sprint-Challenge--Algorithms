@@ -97,7 +97,23 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        if self.can_move_right() is False:
+            return self._list
+        
+        self.swap_item()
+        
+        # If the robot can move right, then move right until you can't anymore.
+        while self.can_move_right() is True:
+            self.move_right()
+        
+        # If the Robot ends and comes with nothing, just break :)
+        if self.compare_item() == None:
+            self.swap_item()
+            break
+
+        self.move_right()
+        self.sort()
+        
 
 
 if __name__ == "__main__":
