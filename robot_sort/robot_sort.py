@@ -1,3 +1,4 @@
+import sys
 class SortingRobot:
     def __init__(self, l):
         """
@@ -97,7 +98,37 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        # Bubble sort
+
+        # The reason we return the list is is because if we get to where we can no longer move right,
+        #  the list should already be sorted (aka we are already at the end of the list). 
+        if self.can_move_right() is False:
+            return self._list
+
+        self.swap_item()
+        # While we can move right, we move right and as we do we compare items, the .compare_item() method returns a 1 if the number to the right is greater than
+        # the number to the left, so if it returns 1, we swap items, and continue to go until we cannot move
+        
+        while self.can_move_right() is True:
+            self.move_right()
+            if self.compare_item() == 1:
+                self.swap_item()
+        # While we can move LEFT, we move left and we swap items if need be, break at the end or it causes and infinite loop.
+        while self.can_move_left():
+            self.move_left()
+            if self.compare_item() == None:
+                self.swap_item()
+                break
+
+        self.move_right()
+
+        self.sort()
+      
+        
+
+
+
+
 
 
 if __name__ == "__main__":
